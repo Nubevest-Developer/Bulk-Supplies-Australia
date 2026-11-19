@@ -2,7 +2,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://bulksuppliesaustralia.com.au',
+  site: 'https://nubevest-developer.github.io',
+  base: '/Bulk-Supplies-Australia',
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto',
