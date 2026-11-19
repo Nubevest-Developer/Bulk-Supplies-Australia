@@ -1,24 +1,25 @@
 ---
 const currentYear = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About Us' },
-  { href: '/products/', label: 'Products' },
-  { href: '/contact/', label: 'Contact Us' },
+  { href: `${base}`, label: 'Home' },
+  { href: `${base}about/`, label: 'About Us' },
+  { href: `${base}products/`, label: 'Products' },
+  { href: `${base}contact/`, label: 'Contact Us' },
 ];
 const productLinks = [
-  { href: '/products/', label: 'Hebel' },
-  { href: '/products/', label: 'Windows' },
-  { href: '/products/', label: 'Steel Frames' },
-  { href: '/products/', label: 'Tiles' },
-  { href: '/products/', label: 'Toilet Seats' },
+  { href: `${base}products/`, label: 'Hebel' },
+  { href: `${base}products/`, label: 'Windows' },
+  { href: `${base}products/`, label: 'Steel Frames' },
+  { href: `${base}products/`, label: 'Tiles' },
+  { href: `${base}products/`, label: 'Toilet Seats' },
 ];
 ---
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/images/bulklogo.jpeg" alt="Bulk Supplies Australia" width="200" height="67" class="footer-logo" loading="lazy" />
+        <img src={`${base}images/bulklogo.jpeg`} alt="Bulk Supplies Australia" width="200" height="67" class="footer-logo" loading="lazy" />
         <p>Building materials and construction supplies for a wide range of building requirements. Based in Kilkenny, South Australia.</p>
       </div>
       <div class="footer-col">

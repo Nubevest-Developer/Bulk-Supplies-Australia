@@ -55,7 +55,7 @@ const products = [
             {products.map((p, i) => (
               <Fragment>
                 {i > 0 && <span class="tag-dot">·</span>}
-                <a href="/products/" class="product-tag">{p.name}</a>
+                <a href={`${import.meta.env.BASE_URL}products/`} class="product-tag">{p.name}</a>
               </Fragment>
             ))}
           </div>
@@ -63,7 +63,7 @@ const products = [
       </div>
       <div class="product-row">
         {products.map((product, i) => (
-          <a href="/products/" class={`product-tile animate-on-scroll delay-${i + 1}`} data-category={product.name}>
+          <a href={`${import.meta.env.BASE_URL}products/`} class={`product-tile animate-on-scroll delay-${i + 1}`} data-category={product.name}>
             <div class="product-tile-image">
               <img src={product.image} alt={product.name} loading="lazy" width="400" height="500" />
             </div>
@@ -90,7 +90,7 @@ const products = [
             <span class="highlight-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> 5 Product Categories</span>
             <span class="highlight-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Bulk Pricing</span>
           </div>
-          <a href="/about/" class="btn btn-primary" style="margin-top: 8px;">Learn More About Us</a>
+          <a href={`${import.meta.env.BASE_URL}about/`} class="btn btn-primary" style="margin-top: 8px;">Learn More About Us</a>
         </div>
         <div class="highlight-visual animate-on-scroll delay-2">
           <div class="highlight-cards">
