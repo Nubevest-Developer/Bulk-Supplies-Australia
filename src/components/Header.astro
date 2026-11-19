@@ -1,0 +1,249 @@
+---
+interface Props {
+  currentPath: string;
+}
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About Us' },
+  { href: '/products/', label: 'Products' },
+  { href: '/contact/', label: 'Contact Us' },
+];
+
+function isActive(href: string, current: string): boolean {
+  if (href === '/') return current === '/' || current === '';
+  return current.startsWith(href);
+}
+---
+<header class="site-header">
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <span class="top-bar-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        23B Humphries Tce, Kilkenny SA 5009
+      </span>
+      <a href="tel:0434287537" class="top-bar-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0434 287 537
+      </a>
+    </div>
+  </div>
+  <nav class="main-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="/" class="logo" aria-label="Bulk Supplies Australia — Home">
+        <img src="/images/bulklogo.jpeg" alt="Bulk Supplies Australia" width="220" height="73" />
+      </a>
+      <ul class="nav-links" role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class:list={['nav-link', { active: isActive(link.href, currentPath) }]}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="/contact/" class="btn btn-primary nav-cta">Request a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul role="list">
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class:list={['mobile-link', { active: isActive(link.href, currentPath) }]}>
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/contact/" class="btn btn-primary mobile-cta">Request a Quote</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-white);
+    transition: box-shadow var(--transition);
+  }
+
+  .site-header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .top-bar {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-size: 0.9375rem;
+    padding: 8px 0;
+  }
+
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-bar-location,
+  .top-bar-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-white);
+    font-weight: 500;
+  }
+
+  .top-bar-phone:hover {
+    color: var(--color-lime);
+  }
+
+  .main-nav {
+    padding: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .logo img {
+    height: 90px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-link {
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    border-radius: 8px;
+    position: relative;
+    transition: color var(--transition), background-color var(--transition);
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-off-white);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary);
+    background-color: rgba(197, 246, 91, 0.15);
+  }
+
+  .nav-cta {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    z-index: 110;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--color-dark);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-white);
+    padding: 120px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 16px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    border-radius: 12px;
+    transition: background var(--transition);
+  }
+
+  .mobile-link:hover,
+  .mobile-link.active {
+    background: var(--color-off-white);
+    color: var(--color-primary);
+  }
+
+  .mobile-cta {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+
+  @media (max-width: 960px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-bar-location {
+      display: none;
+    }
+    .logo img {
+      height: 68px;
+    }
+  }
+</style>

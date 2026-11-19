@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const productOptions = [
+  'Hebel',
+  'Windows',
+  'Steel Frames',
+  'Tiles',
+  'Toilet Seats',
+  'General Enquiry',
+];
+---
+<BaseLayout
+  title="Contact Us — Bulk Supplies Australia"
+  description="Get in touch with Bulk Supplies Australia for building materials and construction supplies enquiries. Located in Kilkenny, South Australia."
+>
+  <Hero
+    heading="Let's Talk About Your Project"
+    text="Have a question or need building supplies? Get in touch with our team."
+    image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=600&fit=crop&q=80"
+    imageAlt="Construction project site"
+    compact={true}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info animate-on-scroll">
+          <h2>Get in Touch</h2>
+          <p>We're here to help with your building supply requirements. Reach out to our team and we'll get back to you as soon as possible.</p>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>23B Humphries Tce<br />Kilkenny SA 5009</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <a href="tel:0434287537">0434 287 537</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.1!2d138.5453!3d-34.8891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0c8e5f3b3f1b1%3A0x0!2s23B+Humphries+Tce%2C+Kilkenny+SA+5009!5e0!3m2!1sen!2sau!4v1700000000000"
+              width="100%"
+              height="100%"
+              style="border:0; border-radius: 12px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Bulk Supplies Australia location"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrap animate-on-scroll delay-2">
+          <form id="contact-form" novalidate>
+            <div id="form-errors" class="form-message form-error" style="display: none;" role="alert"></div>
+            <div id="form-success" class="form-message form-success" style="display: none;" role="status"></div>
+
+            <div class="form-group">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="04XX XXX XXX" />
+            </div>
+
+            <div class="form-group">
+              <label for="product">Product Interested In</label>
+              <select id="product" name="product">
+                {productOptions.map((option) => (
+                  <option value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project requirements..."></textarea>
+            </div>
+
+            <!-- Honeypot for basic spam protection -->
+            <div style="position: absolute; left: -9999px;" aria-hidden="true">
+              <label for="website">Leave blank</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">
+              Submit Enquiry
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: stretch;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-map {
+    flex: 1;
+    min-height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+
+  .contact-map iframe {
+    display: block;
+  }
+
+  .contact-info h2 {
+    margin-bottom: 16px;
+  }
+
+  .contact-info > p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--color-off-white);
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .contact-item h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--color-dark);
+  }
+
+  .contact-item p,
+  .contact-item a {
+    font-size: 1rem;
+    color: var(--color-muted);
+  }
+
+  .contact-item a:hover {
+    color: var(--color-primary);
+  }
+
+  .contact-note {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    border-radius: var(--border-radius);
+    background: #FFF8E1;
+    border: 1px solid #FFE082;
+    align-items: flex-start;
+  }
+
+  .contact-note svg {
+    color: #F9A825;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-note p {
+    font-size: 0.9375rem;
+    color: #5D4037;
+    max-width: none;
+    line-height: 1.6;
+  }
+
+  .contact-form-wrap {
+    background: var(--color-off-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+  }
+
+  .required {
+    color: #D32F2F;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-white);
+    color: var(--color-dark);
+    transition: border-color var(--transition);
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-primary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B716D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 44px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+
+  .form-message {
+    padding: 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .form-error {
+    background: #FFEBEE;
+    border: 1px solid #EF9A9A;
+    color: #C62828;
+  }
+
+  .form-success {
+    background: #E8F5E9;
+    border: 1px solid #A5D6A7;
+    color: #2E7D32;
+  }
+
+  .form-success a {
+    color: #2E7D32;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 960px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .contact-map {
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-form-wrap {
+      padding: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,615 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import CTASection from '../components/CTASection.astro';
+
+const products = [
+  {
+    name: 'Hebel',
+    image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=500&fit=crop&q=80',
+    slug: 'Hebel',
+  },
+  {
+    name: 'Windows',
+    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=500&fit=crop&q=80',
+    slug: 'Windows',
+  },
+  {
+    name: 'Steel Frames',
+    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&h=500&fit=crop&q=80',
+    slug: 'Steel Frames',
+  },
+  {
+    name: 'Tiles',
+    image: 'https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=400&h=500&fit=crop&q=80',
+    slug: 'Tiles',
+  },
+  {
+    name: 'Toilet Seats',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=500&fit=crop&q=80',
+    slug: 'Toilet Seats',
+  },
+];
+---
+<BaseLayout
+  title="Bulk Supplies Australia — Building Supplies from Frame to Finish"
+  description="Quality building materials and construction supplies in Kilkenny, South Australia. Hebel, windows, steel frames, structural steel, tiles and more."
+>
+  <Hero
+    eyebrow="BUILDING SUPPLIES • KILKENNY, SA"
+    heading="Building supplies from frame to finish."
+    text="From Hebel and structural steel to windows, bathrooms and flooring. Quality building supplies for your next project."
+    image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&h=900&fit=crop&q=80"
+    imageAlt="Modern steel frame construction site"
+    showButtons={true}
+  />
+
+  <!-- Product Range -->
+  <section class="section products-section">
+    <div class="container">
+      <div class="products-header animate-on-scroll">
+        <div class="products-header-left">
+          <h2>Product range</h2>
+          <div class="product-tags">
+            {products.map((p, i) => (
+              <Fragment>
+                {i > 0 && <span class="tag-dot">·</span>}
+                <a href="/products/" class="product-tag">{p.name}</a>
+              </Fragment>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div class="product-row">
+        {products.map((product, i) => (
+          <a href="/products/" class={`product-tile animate-on-scroll delay-${i + 1}`} data-category={product.name}>
+            <div class="product-tile-image">
+              <img src={product.image} alt={product.name} loading="lazy" width="400" height="500" />
+            </div>
+            <div class="product-tile-label">
+              <span>{product.name}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Highlight -->
+  <section class="company-highlight">
+    <div class="company-highlight-bg"></div>
+    <div class="container">
+      <div class="highlight-grid">
+        <div class="highlight-content animate-on-scroll">
+          <span class="eyebrow">Who We Are</span>
+          <h2>Your trusted building supply partner in South Australia.</h2>
+          <p>Building materials from structural essentials to finishing products — all under one roof in Kilkenny. We work directly with builders, contractors and homeowners.</p>
+          <div class="highlight-tags">
+            <span class="highlight-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Kilkenny, SA</span>
+            <span class="highlight-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> 5 Product Categories</span>
+            <span class="highlight-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg> Bulk Pricing</span>
+          </div>
+          <a href="/about/" class="btn btn-primary" style="margin-top: 8px;">Learn More About Us</a>
+        </div>
+        <div class="highlight-visual animate-on-scroll delay-2">
+          <div class="highlight-cards">
+            <div class="highlight-card highlight-card-1">
+              <div class="highlight-card-inner">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
+                <h3>Residential</h3>
+                <p>Homes, renovations and extensions</p>
+              </div>
+            </div>
+            <div class="highlight-card highlight-card-2">
+              <div class="highlight-card-inner">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+                <h3>Commercial</h3>
+                <p>Offices, retail and industrial builds</p>
+              </div>
+            </div>
+            <div class="highlight-card highlight-card-3">
+              <div class="highlight-card-inner">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <h3>Renovation</h3>
+                <p>Upgrades, refits and restorations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WhyChooseUs />
+
+  <!-- About Section -->
+  <section class="about-dark">
+    <div class="about-dark-bg"></div>
+    <div class="container">
+      <div class="about-dark-grid">
+        <div class="about-dark-image animate-on-scroll">
+          <img
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop&q=80"
+            alt="Construction building materials"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+          <div class="about-dark-image-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Kilkenny, SA</span>
+          </div>
+        </div>
+        <div class="about-dark-content animate-on-scroll delay-2">
+          <span class="eyebrow">Our Story</span>
+          <h2>Built for builders, by people<br class="desktop-br"/>who understand supply.</h2>
+          <p>We started Bulk Supplies Australia with a simple goal — make it easier for builders, contractors and homeowners to source quality materials without the runaround.</p>
+          <div class="about-dark-stats">
+            <div class="about-dark-stat">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Product Categories</span>
+            </div>
+            <div class="about-dark-stat-divider"></div>
+            <div class="about-dark-stat">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Convenient Location</span>
+            </div>
+            <div class="about-dark-stat-divider"></div>
+            <div class="about-dark-stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Customer Focused</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bulk Supplies Australia",
+    "description": "Building materials and construction supplies in Kilkenny, South Australia.",
+    "telephone": "0434287537",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "23B Humphries Tce",
+      "addressLocality": "Kilkenny",
+      "addressRegion": "SA",
+      "postalCode": "5009",
+      "addressCountry": "AU"
+    },
+    "taxID": "37 640 283 003",
+    "url": "https://bulksuppliesaustralia.com.au"
+  })} />
+</BaseLayout>
+
+<style>
+  /* Company Highlight */
+  .company-highlight {
+    position: relative;
+    background: var(--color-primary);
+    padding: 72px 0;
+    overflow: hidden;
+  }
+
+  .company-highlight-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(197, 246, 91, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(197, 246, 91, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .highlight-content .eyebrow {
+    color: var(--color-lime);
+  }
+
+  .highlight-content h2 {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    margin-bottom: 20px;
+    max-width: 500px;
+  }
+
+  .highlight-content > p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    max-width: 480px;
+  }
+
+  .highlight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .highlight-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: rgba(197, 246, 91, 0.1);
+    border: 1px solid rgba(197, 246, 91, 0.2);
+    color: var(--color-lime);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  /* Interactive cards */
+  .highlight-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .highlight-card {
+    border-radius: var(--border-radius);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+  }
+
+  .highlight-card-inner {
+    padding: 32px 24px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(4px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+  }
+
+  .highlight-card:hover .highlight-card-inner {
+    background: rgba(197, 246, 91, 0.1);
+    border-color: rgba(197, 246, 91, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .highlight-card svg {
+    color: var(--color-lime);
+    margin-bottom: 16px;
+  }
+
+  .highlight-card:hover svg {
+    filter: drop-shadow(0 0 8px rgba(197, 246, 91, 0.4));
+  }
+
+  .highlight-card h3 {
+    color: var(--color-white);
+    font-size: 1.0625rem;
+    margin-bottom: 6px;
+  }
+
+  .highlight-card p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .highlight-card-3 {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 960px) {
+    .highlight-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .company-highlight {
+      padding: 60px 0;
+    }
+    .highlight-content h2 {
+      max-width: none;
+    }
+    .highlight-content > p {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .highlight-cards {
+      grid-template-columns: 1fr;
+    }
+    .highlight-card-3 {
+      grid-column: auto;
+    }
+    .company-highlight {
+      padding: 48px 0;
+    }
+  }
+
+  /* Products header */
+  .products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .products-header h2 {
+    margin-bottom: 10px;
+  }
+
+  .product-tags {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .product-tag {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-muted);
+    transition: color var(--transition);
+  }
+
+  .product-tag:hover {
+    color: var(--color-primary);
+  }
+
+  .tag-dot {
+    color: var(--color-muted);
+    font-size: 1rem;
+  }
+
+  .products-header-right {
+    flex-shrink: 0;
+    padding-top: 4px;
+  }
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1.5px solid var(--color-border);
+    background: var(--color-white);
+    transition: border-color var(--transition);
+    min-width: 220px;
+  }
+
+  .search-field:focus-within {
+    border-color: var(--color-primary);
+  }
+
+  .search-field svg {
+    color: var(--color-muted);
+    flex-shrink: 0;
+  }
+
+  .search-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--color-dark);
+  }
+
+  .search-field input::placeholder {
+    color: var(--color-muted);
+  }
+
+  /* Product row */
+  .product-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .product-tile {
+    display: block;
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+
+  .product-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-tile-image {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .product-tile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .product-tile:hover .product-tile-image img {
+    transform: scale(1.06);
+  }
+
+  .product-tile-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  }
+
+  .product-tile-label span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-white);
+  }
+
+  /* About Dark */
+  .about-dark {
+    position: relative;
+    background: var(--color-secondary);
+    padding: 100px 0;
+    overflow: hidden;
+  }
+
+  .about-dark-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 80%, rgba(197, 246, 91, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse at 10% 20%, rgba(197, 246, 91, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .about-dark-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-dark-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .about-dark-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-dark-image-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    background: rgba(16, 45, 36, 0.85);
+    backdrop-filter: blur(8px);
+    color: var(--color-lime);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .about-dark-content .eyebrow {
+    color: var(--color-lime);
+  }
+
+  .about-dark-content h2 {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 16px;
+  }
+
+  .about-dark-content > p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    max-width: 460px;
+  }
+
+  .about-dark-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 36px;
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .about-dark-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-lime);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .about-dark-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 960px) {
+    .about-dark-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .about-dark {
+      padding: 64px 0;
+    }
+    .products-header {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .search-field {
+      min-width: unset;
+      width: 100%;
+    }
+    .product-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .product-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .about-dark-stats {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .about-dark-stat-divider {
+      display: none;
+    }
+    .about-dark-content > p {
+      max-width: none;
+    }
+    .desktop-br {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  image: string;
+  slug: string;
+  index?: number;
+}
+
+const { name, description, image, slug, index = 0 } = Astro.props;
+---
+<div class={`product-card animate-on-scroll delay-${index % 6}`} data-category={name}>
+  <div class="product-card-image">
+    <img src={image} alt={name} loading="lazy" width="400" height="300" />
+  </div>
+  <div class="product-card-content">
+    <h3>{name}</h3>
+    <p>{description}</p>
+    <a href="/contact/#contact-form" class="product-card-link">
+      Enquire Now
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+  }
+
+  .product-card-image {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  .product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card:hover .product-card-image img {
+    transform: scale(1.06);
+  }
+
+  .product-card-content {
+    padding: 24px;
+  }
+
+  .product-card-content h3 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+  }
+
+  .product-card-content p {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .product-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: gap var(--transition), color var(--transition);
+  }
+
+  .product-card-link:hover {
+    color: var(--color-secondary);
+    gap: 10px;
+  }
+</style>

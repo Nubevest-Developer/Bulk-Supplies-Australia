@@ -1,0 +1,231 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const products = [
+  { name: 'Hebel', description: 'Modern building solutions using AAC Hebel products for walls, floors and panels.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/><line x1="1" y1="14" x2="23" y2="14"/><line x1="8" y1="6" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="18"/></svg>' },
+  { name: 'Windows', description: 'Window solutions for residential and commercial construction projects.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></svg>' },
+  { name: 'Steel Frames', description: 'Steel framing systems for durable and efficient building structures.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h6"/><path d="M9 13h6"/></svg>' },
+  { name: 'Tiles', description: 'Tile products for interior and exterior finishing across different project types.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/></svg>' },
+  { name: 'Toilet Seats', description: 'Practical bathroom finishing products for residential and commercial builds.', icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>' },
+];
+
+const approach = [
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>',
+    title: 'Quality-Focused Supply',
+    description: 'We source building materials that meet the expectations of Australian construction standards.',
+  },
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>',
+    title: 'Practical Solutions',
+    description: 'From structural materials to finishing products, we offer a practical range that covers many building requirements.',
+  },
+  {
+    icon: '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+    title: 'Customer-Focused Service',
+    description: 'Our team works with you to understand your project needs and help you find the right supplies.',
+  },
+];
+---
+<BaseLayout
+  title="About Us — Bulk Supplies Australia"
+  description="Learn about Bulk Supplies Australia. Building materials and construction supplies based in Kilkenny, South Australia."
+>
+  <Hero
+    heading="About Bulk Supplies Australia"
+    text="Your trusted destination for quality building supplies."
+    image="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=600&fit=crop&q=80"
+    imageAlt="Construction site with steel frame building"
+    compact={true}
+  />
+
+  <!-- Introduction -->
+  <section class="section">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-image animate-on-scroll">
+          <img
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop&q=80"
+            alt="Building materials warehouse"
+            loading="lazy"
+            width="800"
+            height="600"
+          />
+        </div>
+        <div class="intro-content animate-on-scroll delay-2">
+          <span class="eyebrow" style="color: var(--color-primary);">Who We Are</span>
+          <h2>Building Supplies for Your Next Project</h2>
+          <p>Bulk Supplies Australia is a building supplies business based in Kilkenny, South Australia. We focus on providing a range of building materials to help our customers source supplies for their residential and commercial construction projects.</p>
+          <p>Whether you are working on a new build, renovation or commercial project, our product range covers many of the key materials you may need — from structural components to finishing products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Range -->
+  <section class="section product-range-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Our Product Range</h2>
+        <p>We supply materials across five key building and construction categories.</p>
+      </div>
+      <div class="product-range-grid">
+        {products.map((product, i) => (
+          <div class={`product-range-card animate-on-scroll delay-${(i % 3) + 1}`}>
+            <div class="product-range-icon" set:html={product.icon} />
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2>Our Approach</h2>
+        <p>How we work with our customers to deliver building supplies.</p>
+      </div>
+      <div class="approach-grid">
+        {approach.map((item, i) => (
+          <div class={`approach-card animate-on-scroll delay-${i + 1}`}>
+            <div class="approach-icon" set:html={item.icon} />
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .intro-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .intro-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .intro-content h2 {
+    margin-bottom: 20px;
+  }
+
+  .intro-content p {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .product-range-section {
+    background-color: var(--color-off-white);
+  }
+
+  .product-range-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .product-range-card {
+    background: var(--color-white);
+    padding: 32px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+  }
+
+  .product-range-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-color: transparent;
+  }
+
+  .product-range-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--color-primary);
+    color: var(--color-lime);
+    margin-bottom: 16px;
+  }
+
+  .product-range-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 8px;
+  }
+
+  .product-range-card p {
+    font-size: 1rem;
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .approach-card {
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .approach-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: var(--color-primary);
+    color: var(--color-lime);
+    margin-bottom: 24px;
+  }
+
+  .approach-card h3 {
+    margin-bottom: 12px;
+  }
+
+  .approach-card p {
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 960px) {
+    .intro-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .product-range-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .approach-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .product-range-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

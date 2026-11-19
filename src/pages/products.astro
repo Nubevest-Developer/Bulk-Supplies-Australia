@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const products = [
+  {
+    name: 'Hebel',
+    description: 'AAC Hebel panels and blocks for walls, floors and facades. Lightweight, strong and energy-efficient.',
+    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&h=450&fit=crop&q=80',
+    slug: 'Hebel',
+  },
+  {
+    name: 'Windows',
+    description: 'Aluminium and uPVC window systems for homes and commercial properties in various styles.',
+    image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=450&fit=crop&q=80',
+    slug: 'Windows',
+  },
+  {
+    name: 'Steel Frames',
+    description: 'Precision-engineered steel framing for residential and commercial builds. Durable and termite-resistant.',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=450&fit=crop&q=80',
+    slug: 'Steel Frames',
+  },
+  {
+    name: 'Tiles',
+    description: 'Quality floor and wall tiles for kitchens, bathrooms and outdoor areas in various finishes.',
+    image: 'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=600&h=450&fit=crop&q=80',
+    slug: 'Tiles',
+  },
+  {
+    name: 'Toilet Seats',
+    description: 'Durable toilet seats and bathroom fittings for residential and commercial builds. Easy to install.',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=450&fit=crop&q=80',
+    slug: 'Toilet Seats',
+  },
+];
+---
+<BaseLayout
+  title="Our Products — Bulk Supplies Australia"
+  description="Explore our range of building materials: Hebel, windows, steel frames, structural steel, tiles and toilet seats. Enquire today."
+>
+  <Hero
+    heading="Our Products"
+    text="Explore our range of building materials and construction supplies."
+    image="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600&h=600&fit=crop&q=80"
+    imageAlt="Building materials and construction supplies"
+    compact={true}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="product-grid">
+        {products.map((product, i) => (
+          <ProductCard
+            name={product.name}
+            description={product.description}
+            image={product.image}
+            slug={product.slug}
+            index={i}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Need help choosing the right product?"
+    text="Our team is here to help you find the right building materials for your project."
+    buttonText="Get in Touch"
+    buttonHref="/contact/"
+  />
+</BaseLayout>
+
+<style>
+  .product-search-wrap {
+    max-width: 400px;
+    margin: 0 auto 48px;
+  }
+
+  .search-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid var(--color-border);
+    background: var(--color-white);
+    transition: border-color var(--transition);
+  }
+
+  .search-field:focus-within {
+    border-color: var(--color-primary);
+  }
+
+  .search-field svg {
+    color: var(--color-muted);
+    flex-shrink: 0;
+  }
+
+  .search-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-size: 1rem;
+    color: var(--color-dark);
+  }
+
+  .search-field input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 960px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>

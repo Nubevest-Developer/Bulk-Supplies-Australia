@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bulksuppliesaustralia.com.au/sitemap.xml
