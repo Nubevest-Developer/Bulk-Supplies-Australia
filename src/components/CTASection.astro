@@ -6,11 +6,12 @@ interface Props {
   buttonHref?: string;
 }
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const {
   heading = 'Planning your next project?',
   text = 'Get in touch with our team to discuss your building supply requirements.',
   buttonText = 'Request a Quote',
-  buttonHref = `${import.meta.env.BASE_URL}contact/`,
+  buttonHref = `${base}contact/`,
 } = Astro.props;
 ---
 <section class="cta-section">
